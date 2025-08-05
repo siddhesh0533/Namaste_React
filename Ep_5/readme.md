@@ -1,132 +1,121 @@
 ## Namaste React Course by Akshay Saini
 
-# _Episode 02 - Igniting Our App_
+# Episode 05 - Let's get Hooked!
 
-## Q: What is `npm`?
+## Q: What is the difference between `Named export`, `Default export`, and `* as export`?
 
-A: `npm` is the world's largest Software Registry. The registry contains over 800,000 code packages. Open-source developers use `npm` to share software.
-
-npm is lots of things:
-
-- `npm` is the package manager for Node.js. It was created in 2009 as an open source project to help JavaScript developers easily share packaged modules of code.
-
-- The `npm` Registry is a public collection of packages of open-source code for` Node.js, front-end web apps, mobile apps, robots, routers`, and countless other needs of the JavaScript community.
-- `npm` alternative is `yarn`
-
-### How to initialize `npm`?
+A: ES6 provides us to import & export a module and use it in other files. ES6 provides two ways to export a module from a file: `named export` and `default export`.
+In `Named export`, one can have multiple named exports per file. Then import the specific exports they want surrounded in `{}` braces. The name of imported module has to be the same as the name of the exported module.
+In `Named export`, the component is exported from MyComponent.js file like:
 
 ```
-npm init
+export const MyComponent = () => {}
+export const MyComponent2 = () => {}
 ```
 
-`npm init -y` can be used to skip the setup step, `npm` takes care of it and creates the `package.json` json file automatically , but without configurations.
-
-- `npm` is the command line client that allows developers to install and publish those packages.
-
-## Q: What is `Parcel/Webpack`? Why do we need it?
-
-A: `Parcel` and `webpack` are the bundlers used mostly for `JavaScript` or `Typescript` code that helps you to `minify, clean, and make your code compact` so that it becomes easier to send a request or receive the response from the server when it usually takes you to transfer multiple files without using any bundler for loading the page of your application. Both of these bundlers substantially reduce the time it takes for the transfer of data and files to the server from the application. Along with that both bundlers parcel and webpack remove the unnecessary comments, new lines, any kind of block delimiters, and white spaces while the functionality of the code remains unchanged.
-
-Use of `Parcel/Webpack`:
-Module bundlers are the way to organize and combine many files of JavaScript code into one file. A JavaScript bundler can be used when your project becomes too large for a single file or when you're working with libraries that have multiple dependencies.
-
-### installation commands:
-
-- Install:
+and the component is imported from MyComponent.js file like: here we must use `{}` in MyComponent.
 
 ```
-npm install -D parcel
+// ex. importing a single named export
+import { MyComponent } from "./MyComponent";
+
+// ex. importing multiple named exports
+import { MyComponent, MyComponent2 } from "./MyComponent";
+
+// ex. giving a named import a different name by using "as":
+import { MyComponent2 as MyNewComponent } from "./MyComponent";
 ```
 
-`-D` is used for development and as a development dependency.
+In `Default export`, One can have only one default export per file. The naming of import is completely independent in default export and we can use any name we like.
+In `Default export`, the component is exported from MyComponent.js file like:
 
-- Parcel Commands :
-  - For development build:
-  ```
-  npx parcel <entry_point>
-  ```
-  - For production build :
-  ```
-  npx parcel build <entry_point>
-  ```
+```
+const MyComponent = () => {}
+export default MyComponent;
+```
 
-## Q: Why is `.parcel-cache` folder?
+and the component is imported from MyComponent.js file like: here we must omit `{}` in MyComponent.
 
-A: `cache folder` (or `.parcel-cache in parcel v2`) stores information about your project when parcel builds it, so that when it rebuilds, it doesn't have to re-parse and re-analyze everything from scratch. It's a key reason why parcel can be so fast in development mode.
+```
+import MyComponent from "./MyComponent";
+```
 
-## Q: What is `npx`?
+In `* as export`, it is used to import the whole module as a component and access the components inside the module.
+In `* as export`, the component is exported from MyComponent.js file like:
 
-A: `npx` stands for `Node Package eXecute`. It is simply an `npm` package runner. It allows developers to execute any Javascript Package available on the npm registry without even installing it. npx is installed automatically with npm version 5.2.
+```
+export const MyComponent = () => {}
+export const MyComponent2 = () => {}
+export const MyComponent3 = () => {}
+```
 
-## Q: What is difference between `dependencies vs devDependencies`?
+and the component is imported from MyComponent.js file like:
 
-A: `"dependencies"` : Packages required by your application in production. `"devDependencies"` : Packages that are only needed for local development and testing.
+```
+import * as MainComponents from "./MyComponent";
+```
 
-## Q: What is Tree Shaking? in Parcel?
+Now we can use them in JSX as:
 
-A: `Tree shaking`, also known as `dead code elimination`, is the practice of `removing unused code in your production build`. It's important to ship as little code to your end-users as possible. By statically analyzing our source code, we can determine what's not being used and exclude it from our final bundle.
+```
+<MainComponents.MyComponent />
+<MainComponents.MyComponent2 />
+<MainComponents.MyComponent3 />
+```
 
-## Q: What is Hot Module Replacement?
+We can use `Named export` and `Default export` together. So you should export like:
 
-A: `Hot Module Replacement (HMR)` exchanges, adds, or removes modules while an application is running, without a full reload. This can significantly speed up development in a few ways: Retain application state which is lost during a full reload. Save valuable development time by only updating what's changed.
+```
+export const MyComponent2 = () => {}
+const MyComponent = () => {}
+export default MyComponent;
+```
 
-## Q: List down your favourite 5 superpowers of Parcel and describe any 3 of them in your own words.
+and import like:
 
-### Parcel features:
+```
+import MyComponent, {MyComponent2} from "./MyComponent";
+```
 
-- Dev Build - parcel provides us develop build
-- Local Server - parcel also provides us a local server, which can be used to see live changes in our application.
-- HMR = Hot Module Replacement - exchanges, adds, or removes modules while an application is running, without a full reload
+## Q: What are `React Hooks`?
 
-and some of more cool features of Parcel are:
+A: In React version 16.8, React introduced a new pattern called Hooks. React Hooks are simple JavaScript functions that we can use to isolate the reusable part from a functional component. Hooks can be stateful and can manage side-effects.
+Hooks allow you to reuse stateful logic without changing your component hierarchy. This makes it easy to share Hooks among many components or with the community.
 
-- File Watching Algorithm - written in C++
-- Caching - Faster Builds
-- Image Optimization
-- Minification
-- Bundling
-- Compress
-- Consistent Hashing
-- Code Splitting
-- Differential Bundling - support older browsers
-- Diagnostic
-- Error Handling
-- HTTPs
-- Tree Shaking - remove unused code
-- Different Build for dev and prod bundles
+### React provides a bunch of standard in-built hooks:
 
-## Q: What is `.gitignore`? What should we add and not add into it?
+- useState: To manage states. Returns a stateful value and an updater function to update it.
+- useEffect: To manage side-effects like API calls, subscriptions, timers, mutations, and more.
+- useContext: To return the current value for a context.
+- useReducer: A useState alternative to help with complex state management.
+- useCallback: It returns a memorized version of a callback to help a child component not re-render unnecessarily.
+- useMemo: It returns a memoized value that helps in performance optimizations.
+- useRef: It returns a ref object with a current property. The ref object is mutable. It is mainly used to access a child component imperatively.
+- useLayoutEffect: It fires at the end of all DOM mutations. It's best to use useEffect as much as possible over this one as the useLayoutEffect fires synchronously.
+- useDebugValue: Helps to display a label in React DevTools for custom hooks.
 
-A: gitignore file tells Git which files to ignore when committing your project to the GitHub repository. gitignore is located in the root directory of your repo. / will ignore directories with the name.
+## Q: Why do we need `useState Hook`?
 
-In our code we shouldn't add the files, which we can re-generate in future e.g, `node_modules`, `dist` etc.
+A: `useState hook` is used to maintain the state in our React application. It keeps track of the state changes so basically useState has the ability to encapsulate local state in a functional component.
+The useState hook is a special function that takes the `initial state` as an `argument` and `returns an array` of two entries. UseState encapsulate only singular value from the state, for multiple state need to have useState calls.
 
-## Q: What is the difference between `package.json` and `package-lock.json` files?
+#### Syntax for useState hook
 
-A: Both of these files have the same format, and perform similar functions in the root of a project. The difference is that `package-lock. json` cannot be published, and it will be ignored if found in any place other than the root project.
+```
+const [state, setState] = useState(initialstate);
+```
 
-The package. json is used for more than dependencies - like defining project properties, description, author & license information, scripts, etc. The package-lock. json is solely used to lock dependencies to a specific version number.
+#### Importing: To use useState you need to import useState from react as shown below:
 
-## Q: Why should I not modify `package-lock.json`?
+```
+import React, { useState } from "react";
+```
 
-A: It is a generated file and is not designed to be manually edited. Its purpose is to track the entire tree of dependencies (including dependencies of dependencies) and the exact version of each dependency. You should commit `package-lock.json` to your code repository
+we can use Hooks in Functional Components
 
-You should avoid updating the `package.json` manually since it could break the synchronization between `package.json` and `package-lock. json`.
-
-## Q: What is `node_modules`? Is it a good idea to push that on git?
-
-A: The `node_modules` folder contains generated code. This is not code you've written and you should never make any updates to the files inside Node modules because there's a pretty good chance they'll get overwritten next time you install some modules.
-
-It is better to not commit the `node_modules` folder, and instead add it to your `.gitignore` file.
-
-Here are all the reasons why you shouldn't commit it: The node_modules folder has a massive size (up to Gigabytes). It is easy to recreate the node_modules folder via packages. json
-
-## Q: What is the `dist` folder?
-
-A: The `/dist` stands for distributable. The /dist folder contains the minimized version of the source code. The code present in the /dist folder is actually the code which is used on production web applications.
-
-Parcel's default directory for your output is named dist . The --dist-dir public tag defines the output folder for your production files and is named public to avoid confusion with the dist default directory.
-
-## Q: What is `browserlists`?
-
-A: Browserslist defines and shares the list of target browsers between various frontend build tools.
+```
+const Example = (props) => {
+  // You can use Hooks here!
+  return <div />;
+}
+```
