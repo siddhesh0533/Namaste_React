@@ -86,3 +86,7 @@ li{
     border: 1px solid black;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
+.input{
+    padding: 10px;
+}
