@@ -1,6 +1,8 @@
 import RestroCard from "./RestroCard";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { RESTAURANT_LIST_URL } from "../utils/constants";
+import { Link } from "react-router-dom";
 
 const Body = () => {
 
@@ -18,7 +20,7 @@ const Body = () => {
 
         const json = await data.json();
 
-        console.log(json);
+        // console.log(json);
 
         setTopRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setOriginalRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
@@ -58,8 +60,8 @@ const Body = () => {
                 </div>
             </div>
             <div className="res-card-container">
-                {topRestro.map((res) => (
-                    <RestroCard key={res.info.id} resData={res} />
+                {topRestro?.map((res) => (
+                    <Link key={res.info.id} to={"/restaurant/"+ res.info.id}><RestroCard resData={res} /></Link>
                 ))}
             </div>
         </div >
