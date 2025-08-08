@@ -1,0 +1,20 @@
+{
+  "name": "ep_2",
+  "version": "1.0.0",
+  "description": "2nd episode of namaste react",
+  "scripts": {
+    "test": "jest",
+    "start": "parcel index.html"
+  },
+  "author": "sid",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  },
+  "dependencies": {
+    "DOM": "^0.0.3",
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1",
+    "react-router-dom": "^6.30.1"
+  }
+}
