@@ -6,31 +6,30 @@ class UserClass extends React.Component {
         super(props);
 
         this.state = {
-            count: 0,
-            count2: 1
+            name:"sid",
+            location:"dighashi"
         }
         console.log(this.props.name + " userclass constuctor");
     }
 
-    componentDidMount(){
-        console.log(this.props.name+ " userclass mount")
-    }
+    async componentDidMount(){
+        const data = await fetch("https://api.github.com/users/siddhesh0533")
 
+        const json = await data.json();
+
+        console.log(json)
+        console.log(this.props.name+ " userclass mount")
+        this.setState(json);
+    }
+    
     render() {
         console.log(this.props.name + " userclass render");
         
-        const { name, location } = this.props;
-        const {count, count2} = this.state;
+        const { name, location, avatar_url } = this.state;
         return (
             <div>
-                <h3>Count: {count}</h3>
-                <button onClick={()=>{
-                    this.setState({
-                        count: this.state.count + 1,
-                    });
-                }}>count++</button>
-                <h3>Count2: {count2}</h3>
                 <h1>Name: {name}</h1>
+                <img src={avatar_url}/>
                 <h2>Location: {location}</h2>
                 <h2>Contact: 1234567890</h2>
                 <hr />
