@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { RESTAURANT_LIST_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 const Body = () => {
 
@@ -10,6 +11,7 @@ const Body = () => {
     const [topRestro, setTopRestro] = useState([]);
     const [count, setCount] = useState(0);
     const [searchtext, setsearchtext] = useState("");
+
 
     useEffect(() => {
         fetchData();
@@ -24,6 +26,12 @@ const Body = () => {
 
         setTopRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setOriginalRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    }
+
+    const onlineStatus = useOnlineStatus();
+
+    if (onlineStatus === false) {
+        return <h1>you'r offline</h1>
     }
 
     if (topRestro.length === 0) {
