@@ -9,16 +9,31 @@ import Error from "./components/Error";
 import { Outlet } from "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import { lazy } from "react";
+import userContext from "./utils/userContext";
 // import Grocery from "./components/Grocery";
+import { useState, useEffect } from "react";
 
 const Grocery = lazy (()=> import("./components/Grocery"))
 
 const App = () => {
+
+    const [userName, setUserName] = useState();
+
+    useEffect(() => {
+        const data = {
+            name : "sid"
+        }
+        setUserName(data.name);
+    }, [])
+    
+
     return (
+        <userContext.Provider value={{loggedinuser: userName , setUserName}}>
         <div className="app">
             <Header />
             <Outlet />
         </div>
+        </userContext.Provider>
     )
 }
 

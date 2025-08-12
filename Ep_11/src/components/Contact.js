@@ -4,13 +4,16 @@ import { useContext } from "react";
 
 const Contact = () => {
 
-    const {loggedinuser} = useContext(userContext);
+    const { loggedinuser, setUserName } = useContext(userContext);
 
-    return(
+    return (
         <>
-        <div>Contact Us</div>
+            <div>Contact Us</div>
 
-        <h1>{loggedinuser}</h1>
+            <h1>{loggedinuser}</h1>
+            <button onClick={() => setUserName("nid")}>
+                Change Name
+            </button>
         </>
     )
 }
