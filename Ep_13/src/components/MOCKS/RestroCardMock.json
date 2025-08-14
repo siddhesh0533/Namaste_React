@@ -1,0 +1,88 @@
+{
+    "info": {
+        "id": "678580",
+        "name": "Mealful Rolls - India's Biggest Rolls",
+        "cloudinaryImageId": "RX_THUMBNAIL/IMAGES/VENDOR/2024/6/24/fa6bdd5d-b1fb-4d7e-a50d-829ed2eeabd7_678580.JPG",
+        "locality": "Gaurav Industrial Estate",
+        "areaName": "Kurla",
+        "costForTwo": "₹250 for two",
+        "cuisines": [
+            "Fast Food",
+            "Snacks",
+            "North Indian",
+            "Desserts"
+        ],
+        "avgRating": 4.5,
+        "parentId": "10390",
+        "avgRatingString": "4.5",
+        "totalRatingsString": "174",
+        "sla": {
+            "deliveryTime": 25,
+            "lastMileTravel": 1.8,
+            "serviceability": "SERVICEABLE",
+            "slaString": "20-30 mins",
+            "lastMileTravelString": "1.8 km",
+            "iconType": "ICON_TYPE_EMPTY"
+        },
+        "availability": {
+            "nextCloseTime": "2025-08-15 02:00:00",
+            "opened": true
+        },
+        "badges": {
+            "textExtendedBadges": [
+                {
+                    "iconId": "guiltfree/GF_Logo_android_3x",
+                    "shortDescription": "options available",
+                    "fontColor": "#7E808C"
+                }
+            ]
+        },
+        "isOpen": true,
+        "type": "F",
+        "badgesV2": {
+            "entityBadges": {
+                "imageBased": {},
+                "textBased": {},
+                "textExtendedBadges": {
+                    "badgeObject": [
+                        {
+                            "attributes": {
+                                "description": "",
+                                "fontColor": "#7E808C",
+                                "iconId": "guiltfree/GF_Logo_android_3x",
+                                "shortDescription": "options available"
+                            }
+                        }
+                    ]
+                }
+            }
+        },
+        "aggregatedDiscountInfoV3": {
+            "header": "ITEMS",
+            "subHeader": "AT ₹100"
+        },
+        "differentiatedUi": {
+            "displayType": "ADS_UI_DISPLAY_TYPE_ENUM_DEFAULT",
+            "differentiatedUiMediaDetails": {
+                "lottie": {},
+                "video": {}
+            }
+        },
+        "reviewsSummary": {},
+        "displayType": "RESTAURANT_DISPLAY_TYPE_DEFAULT",
+        "restaurantOfferPresentationInfo": {},
+        "externalRatings": {
+            "aggregatedRating": {
+                "rating": "--"
+            }
+        },
+        "ratingsDisplayPreference": "RATINGS_DISPLAY_PREFERENCE_SHOW_SWIGGY"
+    },
+    "analytics": {
+        "context": "seo-data-63fb5aea-dca3-48c7-bd0e-3d56653f6ef5"
+    },
+    "cta": {
+        "link": "https://www.swiggy.com/city/mumbai/mealful-rolls-indias-biggest-rolls-gaurav-industrial-estate-kurla-rest678580",
+        "type": "WEBLINK"
+    }
+}

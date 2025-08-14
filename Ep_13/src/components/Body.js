@@ -24,7 +24,7 @@ const Body = () => {
 
         const json = await data.json();
 
-        console.log(json);
+        // console.log(json);
 
         setTopRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setOriginalRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
