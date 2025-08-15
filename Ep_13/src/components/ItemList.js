@@ -16,7 +16,7 @@ const ItemList = ({ items }) => {
         <div>
             {items.map((item) => (
 
-                <div key={item.card.info.id} className="p-2 m-2 border-b text-left flex justify-between">
+                <div data-testid="foodItems" key={item.card.info.id} className="p-2 m-2 border-b text-left flex justify-between">
                     <div className="w-10/12">
                         <div className="py-3">
                             <span>{item?.card?.info?.name}</span>

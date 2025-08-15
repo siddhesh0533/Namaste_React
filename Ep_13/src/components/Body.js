@@ -24,7 +24,7 @@ const Body = () => {
 
         const json = await data.json();
 
-        // console.log(json);
+        console.log(json);
 
         setTopRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
         setOriginalRestro(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
@@ -45,7 +45,7 @@ const Body = () => {
         <div>
             <div className="flex items-center gap-2.5 p-5  ">
                 <div className="flex items-center">
-                    <input type="text" className="p-2.5 border" value={searchtext} onChange={(e) => { setsearchtext(e.target.value) }} />
+                    <input data-testid="searchInput" type="text" className="p-2.5 border" value={searchtext} onChange={(e) => { setsearchtext(e.target.value) }} />
                     <button className="m-1 p-2.5 bg-black text-white" onClick={() => {
                         const filterResto = originalRestro.filter((res) => res.info.name.toLowerCase().includes(searchtext.toLowerCase()));
                         setTopRestro(filterResto)
